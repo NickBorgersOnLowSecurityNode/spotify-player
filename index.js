@@ -45,6 +45,14 @@ app.all('*', function(req,res,next) {
   next();
 });
 
+app.get('/', function (req, res) {
+  res.sendFile('/index.html');
+});
+
+app.get('/spotify-player.js', function (req, res) {
+  res.sendFile('/spotify-player.js');
+});
+
 app.get('/login', function(req, res) {
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
